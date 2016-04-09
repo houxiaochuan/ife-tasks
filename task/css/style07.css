@@ -1,0 +1,380 @@
+body{
+	background: #333;
+}
+.container{
+	width: 100%;
+	min-width: 1280px;
+}
+header{
+	height: 60px;
+	background-color: #fff;
+	padding: 0 60px;
+}
+nav ul{
+	line-height: 60px;
+}
+nav .logo{
+	float: left;
+	margin: 14px 0 0 0;
+}
+nav h1{
+	font-family: "微软雅黑";
+	font-size: 22px;
+}
+nav ul{
+	float: right;
+	position: relative;
+}
+nav ul li{
+	display: inline-block;
+}
+nav ul li a:hover .move{
+	width: 50px;
+}
+nav ul li a:hover{
+	color: #e74f4d;
+}
+nav ul li a{
+	font-size: 14px;
+	color: #000;
+	padding: 12px;
+}
+.move{
+	width: 52px;
+	height: 2px;
+	background-color: #e74f4d;
+	position: absolute;
+	top: 58px;
+	right: 408px;
+	-webkit-transition:right 0.4s ease-out;
+    -moz-transition:right 0.4s ease-out;
+    transition:right 0.4s ease-out;
+    
+}
+header nav ul li:nth-child(1):hover~.move{
+    right: 408px;
+}
+header nav ul li:nth-child(2):hover~.move{
+    right: 323px;
+    width: 80px;
+}
+header nav ul li:nth-child(3):hover~.move{
+    right: 239px;
+    width: 80px;
+}
+header nav ul li:nth-child(4):hover~.move{
+    right: 154px;
+    width: 80px;
+}
+header nav ul li:nth-child(5):hover~.move{
+    right: 70px;
+    width: 80px;
+}
+header nav ul li:nth-child(6):hover~.move{
+    right: 0px;
+    width: 66px;
+}
+/*section1*/
+#section1{
+   height: 700px;
+   background-image: url(../images/img07/task_1_7_1_02.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   overflow: hidden;
+}
+.start{
+   color: #fff;
+   font-size: 28px;
+   padding: 15px 100px;
+   background-color: #e74f4d;
+   position:relative;
+   top: 65%;
+   left:125px;
+}
+/*section2*/
+#section2{
+	background-color: #fff;
+	height: 250px;
+}
+.section2-subwrap{
+	width: 25%;
+	height: 50%;
+	float:left;
+	text-align: center;
+}
+.section2-img,.section2-content{
+	height:100px;
+	position: relative;
+	top: 40%;
+	margin: 0 20px;
+}
+/*section3*/
+#section3{
+	background-color: #eee;
+	height: 260px;
+	text-align: center;
+	padding: 80px;
+}
+#section3 p{
+	font-size: 50px;
+	color: #ccc;
+	margin-top: 50px;
+}
+/*section4*/
+#section4{
+	height: 340px;
+	text-align: center;
+	background-image: url(../images/img07/task_1_7_1_02.gif);
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	color: #fff;
+}
+#section4 h2{
+   margin-top: 50px;
+   margin-bottom: 32px;
+   font-weight: normal;
+   font-size: 18px;
+}
+#section4 form{
+	margin-top: 32px;
+}
+#section4 form select,#section4 form button{
+	width: 240px;
+	height: 36px;
+	margin: 15px;
+}
+#section4 form button{
+	background-color: #be4e48;
+	border: none;
+	color: #fff;
+	letter-spacing: 30px;
+	text-indent: 30px;
+}
+.option{
+	font-size: 16px;
+	/*padding: 10px;*/
+	/*margin: 10px;*/
+	background-color: #e3e2e4;
+}
+/*#section5*/
+#section5{
+	height: 400px;
+	padding: 120px;
+	text-align: center;
+	background-color: #f8f8f7;
+}
+.section5-wrap{
+	width: 25%;
+	/*margin:13px;*/
+	float: left;
+}
+.section5-content{
+	height: 80px;
+	line-height: 40px;
+	text-align: center;
+}
+.section5-img{
+	height:340px;
+}
+.title{
+	font-size: 14px;
+	font-weight: bold;
+}
+/*section6*/
+#section6{
+	height: 566px;
+	text-align: center;
+	background-color: #fff;
+}
+.section6-left{
+	width: 66%;
+	height: 566px;
+	float: left;
+	background-image: url(../images/img07/task_1_7_1_02_04.gif);
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	color: #fff;
+}
+.section6-right{
+	width: 34%;
+	float: right;
+}
+.section6-right-wrap{
+	padding: 20% 10%;
+	text-align: center;
+}
+#section6 h1{
+	font-size: 18px;
+	font-weight: bold;
+	color: #4c4d4d;
+}
+#section6 p{
+	margin: 22px 0;
+	color: #919192;
+	line-height: 30px;
+}
+.more{
+	width: 100px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+    margin: 20px 0px;  	
+   	border: 1px solid #e74f4d; 
+   	display: inline-block;
+}
+.red{
+    color: #e74f4d;
+}
+.dots span{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #919192;
+    display: inline-block;
+    margin: 0px 5px;
+}
+.dots .active{
+	background-color: #919192;
+}
+/*section7*/
+#section7{
+	height: 520px;
+	text-align: center;
+}
+.section7-wrap{
+	position: relative;
+	top: 30%;
+}
+.section7-left,.section7-mid{
+	height: 520px;
+    width: 33%;
+    float: left;  
+    font-size: 20px;
+    font-weight: bold;  
+}
+.section7-left{
+	background-color: #e74f4d;
+	color: #fff;
+}
+.section7-more{
+	border: 1px solid #fff;
+}
+#section7 a{    
+    padding: 10px 40px;
+}
+.section7-left a{
+	color: #fff;
+    border: 1px solid #fff;
+}
+.section7-mid a{
+	color: #e74f4d;
+    border: 1px solid #e74f4d;
+}
+.section7-mid{
+	background-color: #fff;
+}
+#section7 p{
+   line-height: 36px;
+   letter-spacing: 2px;
+}
+.divide{
+	margin-top: 40px;
+}
+.section7-right{
+	width: 34%;
+	height: 520px;
+	float: right;
+}
+/*section8*/
+#section8{
+	height: 500px;
+	padding: 100px;
+	background-color: #fff;
+	text-align: center;
+}
+.section8-wrap{
+	margin-top: 100px;
+}
+.section8-left{
+	width: 33%;
+	float: left;
+}
+.rules{
+	text-align: left;
+	margin-bottom: 30px;
+}
+.right{
+	float: right;
+}
+.section8-right{
+	width: 64%;
+	float: right;
+	text-align: right
+}
+#section8 input,#section8 textarea,#section8 button{
+	background-color: #eee;
+	border: none;
+}
+#section8 input{
+	width: 300px;
+	height: 40px;
+	margin-bottom: 12px;
+	margin-left: 18px;
+}
+#section8 textarea,#section8 button{
+	width: 620px;
+	margin-left:18px;
+}
+#section8 button{
+	margin-top: 12px;
+	height: 40px;
+}
+/*section9*/
+#section9{
+   height: 260px;
+   background-color: #32353e;
+   text-align: center;
+   padding: 100px;
+   color: #fff;
+}
+#section9 p{
+   margin: 20px 0;
+}
+#section9 form{
+	margin-bottom: 20px;
+}
+#section9 input{
+	width: 430px;
+	height: 40px;
+	margin-right:0;
+	border: none;
+}
+#section9 button{
+	margin-left: -5px;
+	height: 40px;
+	width: 80px;
+	border: none;
+	background-color: #6f7178;
+	color: #fff;
+}
+.icon{
+	display: inline-block;
+	margin: 10px;
+}
+/*footer*/
+footer{
+	background-color: #2f2f38;
+	height: 58px;
+	line-height: 58px;
+	padding: 0 20px;
+	color: #fff;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}

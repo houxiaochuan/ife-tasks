@@ -1,0 +1,172 @@
+/*reset*/
+body,div,dl,dt,dd,ul,ol,li,pre,code,form,
+fieldset,legend,input,button,textarea,blockquote,th,td { 
+	margin:0; padding:0; 
+}
+body {
+    background-color: #dedede;   
+	font-size:14px; 
+	font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体"; 
+}
+h1, h2, h3, h4, h5, h6 { 
+	font-weight:normal; 
+	font-size:100%;
+}
+h1{
+	font-size: 16px;
+}
+ol,ul,li {
+   list-style:none; 
+}
+.clear:after{
+    content: '.';
+    visibility: hidden;
+    height: 0;
+    display: block;
+    clear: both;
+}
+.active{
+	color: #ccc;
+}
+/*头部及导航*/
+.header{
+	width: 100%;
+	background-color: #333;
+	height: 60px;
+	line-height: 60px;
+}
+header{
+	float:left;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+nav{
+	float: right;
+	margin-right: 20px;
+}
+nav li{
+	display: inline-block;
+}
+nav ul li a{
+	text-decoration: none;
+	color: #fff;
+}
+/*文章主体部分*/
+.wrap{
+    padding-right: 360px;
+}
+.main{
+	padding-top: 20px;
+	float:left;
+	width:100%;
+}
+article,section,aside{
+	padding: 20px;
+	border: 1px solid #cdcdcd;
+	margin: 0px 20px 20px 20px;
+	background-color: #fff;
+}
+article h1,section h1{
+	font-size: 20px;
+}
+h2{
+	font-size: 16px;
+}
+h1,h2{
+	font-weight: bold;
+}
+address{
+	font-size: 12px;
+	font-style: normal;
+}
+table,th,td{
+    border: 1px solid #ccc;
+}
+table{
+    font-size: 12px;
+    border-collapse: collapse;
+    width: 100%;
+    text-align:center;
+}
+th{
+	color: #fff;
+	font-weight: bold;
+}
+tr{
+	height: 26px;
+	vertical-align: center;
+}
+thead{
+	background-color: #333;
+}
+tfoot{
+    background-color: #ccc;   
+}
+/*content中的图片部分*/
+.img{
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin: 14px 0px 14px 20px;
+	float: left; 
+}
+.desc{
+	text-align: center;
+}
+.img img{
+	width: 100px;
+	height: 80px;
+	margin-top: 12px;
+}
+/*侧栏*/
+.aside{
+	width: 360px;
+	float: left;
+	margin-left: -360px;
+	position: relative;
+	top: 20px;
+	right: -360px;
+}
+aside{
+	margin-left: 0px;
+}
+form label{
+	text-align: right;
+}
+form h4{
+	display: inline;
+	font-weight: normal;
+}
+form div{
+	margin-bottom: 12px;
+}
+.hint{
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+	vertical-align: top;
+}
+.form-tips{
+	margin-left: 122px;
+	font-size: 12px;
+	color: #bcc2c0;
+}
+.submit{
+	width: 100%;
+	background-color: #3355d0;
+	color: #fff;
+	font-size: 16px;
+	border: none;
+	padding: 12px 0;
+	-moz-border-radius: 10px;
+	-wekit-border-radius: 10px;
+	border-radius: 10px;
+}
+/*footer*/
+#footer{
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	color: #fff;
+	background-color: #333;
+}
