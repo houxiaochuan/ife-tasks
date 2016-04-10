@@ -45,10 +45,11 @@ var aqiData = [
 	});
 
   // 显示
+   var aqiLi;
     for(var i=0; i < aqif.length; i++){
-        aqiList.innerHTML += '<li>第'+(i+1)+'名：'+aqif[i][0]+','+aqif[i][1]+'</li>';	
+        aqiLi += '<li>第'+(i+1)+'名：'+aqif[i][0]+','+aqif[i][1]+'</li>';	
     }
-    
+    aqiList.innerHTML = aqiLi;
 })();
 
 </script>
