@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task 18</title>
+</head>
+<style type="text/css">
+	button{
+		/*float: left;*/
+		margin: 10px 4px;
+	}
+	#container{
+        height: 40px;
+        margin-top: 10px;
+	}
+	.redBlock{
+        background-color: red;
+        /*display: inline-block;*/
+        text-align: center;
+        /*width: 20px;*/
+        /*height: 20px;*/
+        padding: 10px;
+        margin: 10px;
+	}
+</style>
+<body>
+	<div><input type="text" id="input"></div>
+	<div>
+	<button type="button" id="left-in">左侧入</button>
+	<button type="button" id="right-in">右侧入</button>
+	<button type="button" id="left-out">左侧出</button>
+	<button type="button" id="right-out">右侧出</button>
+	</div>
+	<div id="container"></div>
+
+	<script type="text/javascript">
+    window.onload = function(){
+        var input = document.getElementById('input');
+        var leftIn = document.getElementById('left-in');
+        var rightIn = document.getElementById('right-in');
+        var leftOut = document.getElementById('left-out');
+        var rightOut = document.getElementById('right-out');
+        var container = document.getElementById('container');          
+        var num=[];
+        
+        //将输入内容从数组添加或删除
+        function leftInFun(inputValue){
+            num.unshift(inputValue);
+            return num;
+        }
+
+        function rightInFun(inputValue){
+            num.push(inputValue);
+            return num;
+        }
+
+        function leftOutFun(){
+            num.shift();
+            return num;
+        }
+
+        function rightOutFun(){
+            num.pop();
+            return num;
+        }
+        
+        //显示
+        function render(data) {
+          var inner='';
+          for(var i=0; i < data.length; i++){
+                inner +=  '<span class="redBlock">'+data[i]+'</span>';;  
+            }
+            container.innerHTML = inner;
+        }
+
+        function init() {
+
+          // 在四个按钮点击事件，点击时触发btnHandle函数
+          leftIn.onclick = function(){
+            var inputValue = input.value;
+            if (!inputValue.match(/^[0-9]+$/)){
+               alert('请输入数字！');
+            }else{
+               leftInFun(inputValue);
+               render(num);   
+            }; 
+          };
+
+          rightIn.onclick = function(){
+            var inputValue = input.value;
+            if (!inputValue.match(/^[0-9]+$/)){
+               alert('请输入数字！');
+            }else{
+               rightInFun(inputValue);
+               render(num);   
+            }; 
+          };
+
+          leftOut.onclick = function(){
+               leftOutFun();
+               render(num);   
+          };
+
+          rightOut.onclick = function(){
+               rightOutFun();
+               render(num);   
+          };
+        }
+
+        init();
+       }
+	</script>
+</body>
+</html>

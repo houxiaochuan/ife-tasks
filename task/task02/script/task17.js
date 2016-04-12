@@ -62,8 +62,9 @@ function renderChart() {
  * 日、周、月的radio事件点击时的处理函数
  */
 function graTimeChange() {
-  // 确定是否选项发生了变化 
+  // 确定是否选项发生了变化
 
+  
   // 设置对应数据
 
   // 调用图表渲染函数
@@ -73,11 +74,18 @@ function graTimeChange() {
  * select发生变化时的处理函数
  */
 function citySelectChange() {
-  // 确定是否选项发生了变化 
+  var citySelect = document.getElementById('city-select');
 
+  citySelect.onchange = function(){
+    
+  }
+  // 确定是否选项发生了变化 
+  
   // 设置对应数据
 
   // 调用图表渲染函数
+  
+
 }
 
 /**
