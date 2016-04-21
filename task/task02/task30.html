@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: '微软雅黑';
+            font-size: 1rem;
+        }
+
+        label{
+            height: 40px;
+            margin-right: 20px;
+            text-align: right;
+            display: inline-block;
+            width: 100px;
+        }
+
+        input{
+            width: 300px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #a8a8a8; 
+        }
+
+        .submit{
+            background-color: #2F79BA;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            color: #fff;
+            width : 100px;
+            height: 46px;
+            margin-left: 200px;
+        }
+    </style>
+
+</head>
+<body>
+    <form onsubmit="return watchFields(this)">
+    <div>
+        <label for="name">名称:</label>
+        <input type="text" id="name" name="name" />
+        <span class="tips"></span>
+    </div>
+
+    <div>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" />
+        <span class="tips"></span>
+    </div>
+
+    <div>
+        <label for="re-password">密码确认:</label>
+        <input type="password" id="re-password" name="repassword" />
+        <span class="tips"></span>
+    </div>
+
+    <div>
+        <label for="email">邮箱:</label>
+        <input type="text" id="email" name="email" />
+        <span class="tips"></span>
+    </div>
+
+    <div>
+        <label for="phone">手机:</label>
+        <input type="text" id="phone" name="phone" />
+        <span class="tips"></span>
+    </div>
+
+    <input type="submit" value="提交" class="submit" id="submit" /> 
+
+    </form>
+
+    <script type="text/javascript">
+
+        //构建验证规则和错误信息
+        var   errMsg = {
+
+            required:{
+                msgErr: '不能为空',
+                msgRig:'必填',
+                test: function(elem){
+                   return !(elem.value==null || elem.value=="");
+                }
+            },
+
+            name:{
+                msgErr: '长度必须为4—16位字符',
+                msgRig:'名称可用',
+                test: function(elem){
+                   return getLength(elem.value) >= 4 && getLength(elem.value) <= 16;
+                }
+            },
+
+            password:{
+                msgErr: '必须为6—16位数字或字母',
+                msgRig: '密码可用',
+                test: function(elem){
+                   return elem.value.match(/^[a-zA-Z0-9]{6,16}$/);
+                }
+            },
+
+            repassword:{
+                msgErr:'密码输入不一致',
+                msgRig:'密码输入一致',
+                test:function(elem){
+                   var pass = document.getElementById('password').value;
+                   return  elem.value === pass;
+                }
+            },
+
+            email:{
+                msgErr: '邮箱格式错误',
+                msgRig:'邮箱可用',
+                test: function(elem){
+                    var m=/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i;
+                    return  m.test(elem.value);
+                }
+            },
+
+            phone:{
+                msgErr: '手机格式错误',
+                msgRig:'手机格式正确',
+                test: function(elem){
+                    var m =  /^([\+][0-9]{1,3}([ \.\-])?)?([\(][0-9]{1,6}[\)])?([0-9 \.\-]{1,32})(([A-Za-z \:]{1,11})?[0-9]{1,4}?)$/;
+                    return  m.test(elem.value);
+                }
+            },
+        }
+
+
+        //验证单个字段的内容
+        function validateFields(elem){
+            for (var name in errMsg){
+                var re = new RegExp("(^|\\s)"+name+"(\\s|$)");
+                if(re.test(elem.name)){
+                    if(errMsg[name].test(elem)){
+                        showMessage(elem,errMsg[name].msgRig,'lightgreen');
+                    }else{
+                        showMessage(elem,errMsg[name].msgErr,'red');
+                    }
+                }
+
+            }
+        }
+
+        //验证整个表单
+        function validateForm(form){
+            var validate = true;
+            var input = form.getElementsByTagName('input');
+            for(var i=0; i < input.length; i++){
+                if(!validateFields(input[i])){
+                    validate = false;
+                }
+            }
+            return validate;
+        }
+
+        //在表单提交时验证
+        
+        function watchForm(form){
+            alert(1);
+            var sub = document.getElementById('submit');
+            console.log(sub);
+            addEvent(sub,'submit',function(){
+                alert(1);
+                if(validateForm(form)){
+                    alert('验证成功');
+                }else{
+                    alert('验证失败');
+                }                
+                return validateForm(form);
+            })
+        }
+
+        //在单个字段改变时验证
+        function watchFields(form){
+            var input = form.getElementsByTagName('input');
+            for (var j = 0;j <= input.length;j++){
+                addEvent(input[j],'change',function(){
+                    return validateFields(this);
+                })
+            }
+        }
+
+        var form = document.getElementsByTagName('form')[0];
+
+        // watchForm(form);
+        watchFields(form);
+        
+
+        //设置每个英文字母、数字、英文符号长度为1，每个汉字，中文符号长度为2
+        function getLength(str){
+            var realLength = 0;
+            for(var i=0; i < str.length; i++){
+                var charCode = str.charCodeAt(i);
+                if(charCode >= 0 && charCode <= 128){
+                    realLength += 1;
+                }else{
+                    realLength += 2;
+                }
+            }
+            return realLength;
+        };
+
+
+        //显示信息
+        function showMessage(elem,msg,color){
+            var next = elem.nextSibling.nextSibling;
+            next.innerHTML = msg;
+            next.style.color = color; 
+        }
+
+        //添加事件
+        function addEvent(element,type,handler){
+            if(element.addEventListener){
+                element.addEventListener(type,handler,false);
+            }else if(element.attachEvent){
+                element.attachEvent('on'+type,handler);
+            }else{
+                element['on'+type] = handler;
+            }
+        }
+
+    </script>
+</body>
+</html>
