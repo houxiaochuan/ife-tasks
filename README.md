@@ -35,3 +35,7 @@ http://htmlpreview.github.io/?https://github.com/houxiaochuan/ife-task/blob/mast
 37 浮出层
 
 http://htmlpreview.github.io/?https://github.com/houxiaochuan/ife-tasks/blob/master/task/task03/task37.html
+
+44 瀑布流
+
+http://htmlpreview.github.io/?https://github.com/houxiaochuan/ife-tasks/blob/master/task/task03/waterfall-task44/task44.html
